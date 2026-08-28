@@ -36,7 +36,6 @@ document.querySelectorAll(".keypad button[data-key]").forEach(btn=>{
 
 const CONFIG = {
   relationshipStart: "2025-07-17T20:00:00",
-
   messages: [
     ["me","Cześć piękna"],
     ["them","Cześć"],
