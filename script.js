@@ -35,19 +35,20 @@ document.querySelectorAll(".keypad button[data-key]").forEach(btn=>{
 });
 
 const CONFIG = {
-  relationshipStart: "2025-07-17T00:00:00",
+  relationshipStart: "2025-07-17T20:00:00",
+
   messages: [
-    ["me","Czemu wyszłaś z Filipem?"],
-    ["them","A skąd wiesz?"],
-    ["me","Bo znajomy Was widział."],
-    ["me","I mi powiedział."],
-    ["them","ale konfident XD"],
-    ["them","no i co, byłam z nim"],
-    ["me","Zostawiasz mnie?"],
-    ["me","Zdradzasz?"],
-    ["them","posłuchaj…"],
-    ["them","To żart ❤️"],
-    ["me","Uffff no okej 😭"],
+    ["me","Cześć piękna"],
+    ["them","Cześć"],
+    ["me","Co ktoś tak ładny jak ty robi w takim miejscu."],
+    ["them","Szukam ciekawych osób"],
+    ["me","czyli jestem ciekawy ;)"],
+    ["them","haha"],
+    ["me","Co robisz"],
+    ["them","Oglądam serial"],
+    ["me","jaki"],
+    ["them","Chucky"],
+    ["me","O kurde naprawde? oglądałem go ostatnio"],
     ["me","Mam coś dla Ciebie. Zeskanuj to."]
   ]
 };
