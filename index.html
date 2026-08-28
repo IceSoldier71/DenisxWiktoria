@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#12060e" />
+  <title>Denis × Wiktoria ❤️</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div id="hearts" aria-hidden="true"></div>
+
+  
+  <section id="lockScreen" class="lock-screen">
+    <div class="lock-heart">♥</div>
+    <div class="lock-label">TYLKO DLA NAS</div>
+    <h1>Denis <em>×</em> Wiktoria</h1>
+    <p>Wpisz nasz PIN, aby otworzyć wspomnienia</p>
+
+    <div class="pin-dots" id="pinDots">
+      <i></i><i></i><i></i><i></i>
+    </div>
+
+    <div class="pin-error" id="pinError"></div>
+
+    <div class="keypad">
+      <button data-key="1">1</button><button data-key="2">2</button><button data-key="3">3</button>
+      <button data-key="4">4</button><button data-key="5">5</button><button data-key="6">6</button>
+      <button data-key="7">7</button><button data-key="8">8</button><button data-key="9">9</button>
+      <button class="key-empty"></button><button data-key="0">0</button><button data-key="del">⌫</button>
+    </div>
+    <small class="pin-hint">PIN możesz zmienić w pliku script.js</small>
+  </section>
+
+  <main class="phone" id="mainSite">
+    <section id="scene-chat" class="scene active">
+      <div class="story-title">Zaczęło się od jednej wiadomości…</div>
+
+      <div class="messenger">
+        <header class="chat-head">
+          <button class="back">‹</button>
+          <div class="avatar">❤️</div>
+          <div class="person">
+            <strong>Wiktoria ❤️</strong>
+            <span>aktywna teraz</span>
+          </div>
+          <div class="head-icons">☎︎&nbsp;&nbsp;●</div>
+        </header>
+
+        <div id="messages" class="messages"></div>
+
+        <div class="typing" id="typing">
+          <i></i><i></i><i></i>
+        </div>
+
+        <div class="composer">
+          <span>＋</span><span>◉</span><span>▣</span>
+          <div class="input">Aa</div>
+          <span>♥</span>
+        </div>
+      </div>
+
+      <button class="skip" id="skipBtn">Pomiń rozmowę</button>
+    </section>
+
+    <section id="scene-qr" class="scene">
+      <div class="time-card">15 minut później</div>
+
+      <div class="qr-card glass">
+        <div class="small">Mam coś dla Ciebie…</div>
+        <div class="qr-placeholder">
+          <span>QR</span>
+          <small>tu wstawisz prawdziwy kod</small>
+        </div>
+        <strong>Zeskanuj to ❤️</strong>
+        <p>Albo kliknij przycisk poniżej.</p>
+        <button class="primary" id="openStory">Otwórz naszą stronę</button>
+      </div>
+    </section>
+
+    <section id="scene-story" class="scene story">
+      <nav class="topbar">
+        <button class="round">♫</button>
+        <div class="mini-pill">17.07.2025</div>
+        <button class="round">✦</button>
+      </nav>
+
+      <div class="hero">
+        <div class="eyebrow">NASZA HISTORIA</div>
+        <h1>Denis <em>×</em> Wiktoria</h1>
+        <p class="lead">Dwie osoby.<br>Jedna historia.<br>Mnóstwo wspomnień.</p>
+        <div class="line"></div>
+        <p class="since">Od 17 lipca 2025 ❤️</p>
+        <a href="#gallery" class="scroll">⌄</a>
+      </div>
+
+      <section class="counter glass">
+        <div><strong id="days">000</strong><span>dni razem</span></div>
+        <div><strong id="hours">00</strong><span>godzin</span></div>
+        <div><strong id="minutes">00</strong><span>minut</span></div>
+      </section>
+
+      <section id="gallery" class="gallery-section">
+        <div class="eyebrow">NASZE WSPOMNIENIA</div>
+        <h2 class="section-title">Galeria</h2>
+
+        <!-- DUŻY KAFEL -->
+        <article class="photo-card photo-card--hero glass">
+          <img src="images/01.jpg" alt="Nasze wspomnienie 1" onerror="this.style.display='none'">
+          <div class="photo-placeholder">01.jpg</div>
+          <div class="photo-overlay">
+            <small>Pierwsze Spotkanie</small>
+            <h3>Nasza historia zaczyna się tutaj</h3>
+          </div>
+        </article>
+
+        <!-- DWA KAFELKI OBOK SIEBIE -->
+        <div class="photo-grid-2">
+          <article class="photo-card photo-card--square glass">
+            <img src="images/02.jpg" alt="Nasze wspomnienie 2" onerror="this.style.display='none'">
+            <div class="photo-placeholder">02.jpg</div>
+            <div class="photo-badge">❤️</div>
+          </article>
+
+          <article class="photo-card photo-card--square glass">
+            <img src="images/03.jpg" alt="Nasze wspomnienie 3" onerror="this.style.display='none'">
+            <div class="photo-placeholder">03.jpg</div>
+            <div class="photo-badge">∞</div>
+          </article>
+        </div>
+
+        <!-- KAFEL Z OPISEM -->
+        <article class="story-tile glass">
+          <div class="story-tile__photo">
+            <img src="images/04.jpg" alt="Nasze wspomnienie 4" onerror="this.style.display='none'">
+            <div class="photo-placeholder">04.jpg</div>
+          </div>
+          <div class="story-tile__text">
+            <small>JEDEN Z WIELU</small>
+            <h3>Pierwszy pocałunek</h3>
+            <p>Tutaj poraz pierwszy się pocałowaliśmy</p>
+          </div>
+        </article>
+
+        <!-- POLAROID -->
+        <div class="polaroid-row">
+          <article class="polaroid polaroid--left">
+            <div class="polaroid-photo">
+              <img src="images/05.jpg" alt="Nasze wspomnienie 5" onerror="this.style.display='none'">
+              <div class="photo-placeholder">05.jpg</div>
+            </div>
+            <p>Razem ❤️</p>
+          </article>
+
+          <article class="polaroid polaroid--right">
+            <div class="polaroid-photo">
+              <img src="images/06.jpg" alt="Nasze wspomnienie 6" onerror="this.style.display='none'">
+              <div class="photo-placeholder">06.jpg</div>
+            </div>
+            <p>Najlepsze chwile</p>
+          </article>
+        </div>
+
+        <!-- SZEROKI KAFEL -->
+        <article class="wide-memory glass">
+          <div class="wide-memory__image">
+            <img src="images/07.jpg" alt="Nasze wspomnienie 7" onerror="this.style.display='none'">
+            <div class="photo-placeholder">07.jpg</div>
+          </div>
+          <div class="wide-memory__content">
+            <span class="number">07</span>
+            <h3>Już oficjalnie</h3>
+            <p>Tutaj oficjalnie wszystko się zaczeło <3</p>
+          </div>
+        </article>
+
+        <!-- MOzaika 3 zdjęć -->
+        <div class="mosaic">
+          <article class="photo-card mosaic-big glass">
+            <img src="images/08.jpg" alt="" onerror="this.style.display='none'">
+            <div class="photo-placeholder">08.jpg</div>
+          </article>
+          <article class="photo-card glass">
+            <img src="images/09.jpg" alt="" onerror="this.style.display='none'">
+            <div class="photo-placeholder">09.jpg</div>
+          </article>
+          <article class="photo-card glass">
+            <img src="images/10.jpg" alt="" onerror="this.style.display='none'">
+            <div class="photo-placeholder">10.jpg</div>
+          </article>
+        </div>
+
+        <article class="quote glass">
+          „Zaczeło się od głupiej aplikacji i kilku prostych wiadomości a moja miłość trwa po dziś dzien. Kocham cię skarbie <3”
+        </article>
+      </section>
+
+      <section class="song">
+        <div class="eyebrow">NASZA PIOSENKA</div>
+        <div class="song-card glass">
+          <div class="disc">♥</div>
+          <div>
+            <strong>Wasza piosenka</strong>
+            <span>wykonawca</span>
+          </div>
+          <button>▶</button>
+        </div>
+      </section>
+
+      <footer>Denis × Wiktoria • 17.07.2025 ❤️</footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
