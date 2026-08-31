@@ -498,15 +498,48 @@ color:#fff;font-size:24px;font-weight:300;backdrop-filter:blur(10px);transition:
   .gallery-premium{max-width:100%;}
 }
 
-/* ===== UKLAD 07-11: 07 + 08/09/10 jeden rzad, 11 szeroko pod nimi ===== */
+/* ===== UKLAD 07-11 FINAL: szerokie 08/09/10 + duzy 11 ===== */
 @media (min-width:801px){
-  .memory-collage{grid-template-rows:230px 230px 420px 360px;}
-  .memory-07{grid-column:1/6;grid-row:3/4;}
-  .memory-08{grid-column:6/8;grid-row:3/4;}
-  .memory-09{grid-column:8/10;grid-row:3/4;}
-  .memory-10{grid-column:10/13;grid-row:3/4;}
-  .memory-11{grid-column:1/13;grid-row:4/5;display:grid;grid-template-columns:70% 30%;}
-  .memory-11 video{grid-column:1;height:100%;min-height:0;object-fit:cover;}
-  .memory-11 .video-copy{grid-column:2;padding:38px 32px;}
-  .memory-11 .video-copy h3{font-size:30px;}
+  /* 13 kolumn pozwala uzyskac proporcje prawie 1:1 z makietą:
+     07 = 4/13, a 08/09/10 po 3/13 szerokości. */
+  .memory-collage{
+    grid-template-columns:repeat(13,minmax(0,1fr));
+    grid-template-rows:230px 230px 420px 420px;
+    gap:14px;
+  }
+
+  /* Dwa górne rzędy zachowują dotychczasowy charakter galerii. */
+  .memory-01{grid-column:1/8;grid-row:1/2;}
+  .memory-02{grid-column:8/11;grid-row:1/2;}
+  .memory-03{grid-column:11/14;grid-row:1/2;}
+  .memory-04{grid-column:1/8;grid-row:2/3;}
+  .memory-05{grid-column:8/11;grid-row:2/3;}
+  .memory-06{grid-column:11/14;grid-row:2/3;}
+
+  /* 07 zostaje duże, 08/09/10 są wyraźnie szersze. */
+  .memory-07{grid-column:1/5;grid-row:3/4;}
+  .memory-08{grid-column:5/8;grid-row:3/4;}
+  .memory-09{grid-column:8/11;grid-row:3/4;}
+  .memory-10{grid-column:11/14;grid-row:3/4;}
+
+  /* 11 sam w całym wierszu. */
+  .memory-11{
+    grid-column:1/14;
+    grid-row:4/5;
+    display:grid;
+    grid-template-columns:64% 36%;
+    min-height:420px;
+  }
+  .memory-11 video{
+    grid-column:1;
+    height:100%;
+    min-height:420px;
+    object-fit:cover;
+  }
+  .memory-11 .video-copy{
+    grid-column:2;
+    padding:44px 38px;
+  }
+  .memory-11 .video-copy h3{font-size:34px;}
+  .memory-11 .video-copy p{font-size:14px;line-height:1.6;}
 }
