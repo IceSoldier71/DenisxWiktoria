@@ -221,6 +221,33 @@
 <audio id="bgMusic" loop>
   <source src="music/song.mp3" type="audio/mpeg">
 </audio>
-  <script src="script.js"></script>
+  <script src="script.js?v=20260831-2"></script>
+
+<script>
+// Awaryjne przejście: jeśli ekran „15 minut później...” jest aktywny,
+// zawsze po 2,5 s otwórz właściwą stronę. Działa niezależnie od cache GitHub Pages.
+(() => {
+  const transition = document.getElementById("scene-qr");
+  const story = document.getElementById("scene-story");
+  if (!transition || !story) return;
+
+  let fallbackTimer = null;
+  const forceStory = () => {
+    document.querySelectorAll(".scene").forEach(s => s.classList.remove("active"));
+    story.classList.add("active");
+    window.scrollTo(0, 0);
+  };
+
+  const armFallback = () => {
+    clearTimeout(fallbackTimer);
+    if (transition.classList.contains("active")) {
+      fallbackTimer = setTimeout(forceStory, 2500);
+    }
+  };
+
+  new MutationObserver(armFallback).observe(transition, { attributes: true, attributeFilter: ["class"] });
+  armFallback();
+})();
+</script>
 </body>
 </html>
