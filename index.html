@@ -64,25 +64,18 @@
       <button class="skip" id="skipBtn">Pomiń rozmowę</button>
     </section>
 
-    <section id="scene-qr" class="scene">
-      <div class="time-card">15 minut później</div>
-
-      <div class="qr-card glass">
-        <div class="small">Mam coś dla Ciebie…</div>
-        <div class="qr-real">
-          <img src="images/qr-denis-wiktoria.png" alt="Kod QR do strony Denis × Wiktoria">
-        </div>
-        <strong>Zeskanuj to ❤️</strong>
-        <p>Albo kliknij przycisk poniżej.</p>
-        <button class="primary" id="openStory">Otwórz naszą stronę</button>
-      </div>
+    <section id="scene-qr" class="scene time-transition">
+      <div class="time-card">15 minut później...</div>
     </section>
 
     <section id="scene-story" class="scene story">
       <nav class="topbar">
-        <button class="round">♫</button>
-        <div class="mini-pill">17.07.2025</div>
-        <button class="round">✦</button>
+        <div class="music-control">
+          <button class="round music-round" id="musicBtn" aria-label="Włącz lub wyłącz muzykę">♫</button>
+          <span class="play-me">Play Me</span>
+        </div>
+        <div class="mini-pill">♥&nbsp;&nbsp;17.07.2025&nbsp;&nbsp;♥</div>
+        <div class="topbar-spacer" aria-hidden="true"></div>
       </nav>
 
       <div class="hero">
@@ -100,99 +93,107 @@
         <div><strong id="minutes">00</strong><span>minut</span></div>
       </section>
 
-      <section id="gallery" class="gallery-section">
+      <section id="gallery" class="gallery-section gallery-premium">
         <div class="eyebrow">NASZE WSPOMNIENIA</div>
         <h2 class="section-title">Galeria</h2>
+        <div class="gallery-heartline"><span></span>♥<span></span></div>
 
-        <!-- DUŻY KAFEL -->
-        <article class="photo-card photo-card--hero glass">
-          <img src="images/01.jpg" alt="Nasze wspomnienie 1" onerror="this.style.display='none'">
-          <div class="photo-placeholder">01.jpg</div>
-          <div class="photo-overlay">
-            <small>Pierwsze Spotkanie</small>
-            <h3>Nasza historia zaczyna się tutaj</h3>
-          </div>
-        </article>
-
-        <!-- DWA KAFELKI OBOK SIEBIE -->
-        <div class="photo-grid-2">
-          <article class="photo-card photo-card--square glass">
-            <img src="images/02.jpg" alt="Nasze wspomnienie 2" onerror="this.style.display='none'">
-            <div class="photo-placeholder">02.jpg</div>
-            <div class="photo-badge">❤️</div>
-          </article>
-
-          <article class="photo-card photo-card--square glass">
-            <img src="images/03.jpg" alt="Nasze wspomnienie 3" onerror="this.style.display='none'">
-            <div class="photo-placeholder">03.jpg</div>
-            <div class="photo-badge">∞</div>
-          </article>
-        </div>
-
-        <!-- KAFEL Z OPISEM -->
-        <article class="story-tile glass">
-          <div class="story-tile__photo">
-            <img src="images/04.jpg" alt="Nasze wspomnienie 4" onerror="this.style.display='none'">
-            <div class="photo-placeholder">04.jpg</div>
-          </div>
-          <div class="story-tile__text">
-            <small>JEDEN Z WIELU</small>
-            <h3>Pierwszy pocałunek</h3>
-            <p>Tutaj poraz pierwszy się pocałowaliśmy</p>
-          </div>
-        </article>
-
-        <!-- POLAROID -->
-        <div class="polaroid-row">
-          <article class="polaroid polaroid--left">
-            <div class="polaroid-photo">
-              <img src="images/05.jpg" alt="Nasze wspomnienie 5" onerror="this.style.display='none'">
-              <div class="photo-placeholder">05.jpg</div>
+        <div class="memory-collage">
+          <article class="memory-card memory-01 glass">
+            <img src="images/01.jpg" alt="Nasze wspomnienie 1">
+            <span class="memory-no">01</span>
+            <div class="memory-caption darkfade">
+              <small>Pierwsze Spotkanie</small>
+              <h3>Nasza historia zaczyna się tutaj</h3>
             </div>
-            <p>Razem ❤️</p>
           </article>
 
-          <article class="polaroid polaroid--right">
-            <div class="polaroid-photo">
-              <img src="images/06.jpg" alt="Nasze wspomnienie 6" onerror="this.style.display='none'">
-              <div class="photo-placeholder">06.jpg</div>
+          <article class="memory-card memory-02 glass">
+            <img src="images/02.jpg" alt="Nasze wspomnienie 2">
+            <span class="memory-no">02</span><span class="memory-icon">♥</span>
+          </article>
+
+          <article class="memory-card memory-03 glass">
+            <img src="images/03.jpg" alt="Nasze wspomnienie 3">
+            <span class="memory-no">03</span><span class="memory-icon">∞</span>
+          </article>
+
+          <article class="memory-card memory-04 glass">
+            <img src="images/04.jpg" alt="Nasze wspomnienie 4">
+            <span class="memory-no">04</span>
+            <div class="memory-caption darkfade">
+              <small>JEDEN Z WIELU</small>
+              <h3>Pierwszy pocałunek</h3>
+              <p>Tutaj po raz pierwszy się pocałowaliśmy</p>
             </div>
-            <p>Najlepsze chwile</p>
+          </article>
+
+          <article class="memory-card polaroid-card memory-05">
+            <div class="polaroid-inner">
+              <img src="images/05.jpg" alt="Nasze wspomnienie 5">
+              <span class="memory-no">05</span>
+              <p>Razem ❤️</p>
+            </div>
+          </article>
+
+          <article class="memory-card polaroid-card memory-06">
+            <div class="polaroid-inner">
+              <img src="images/06.jpg" alt="Nasze wspomnienie 6">
+              <span class="memory-no">06</span>
+              <p>Najlepsze chwile</p>
+            </div>
+          </article>
+
+          <article class="memory-card memory-07 glass">
+            <img src="images/07.jpg" alt="Nasze wspomnienie 7">
+            <span class="memory-no">07</span>
+            <div class="memory-caption darkfade">
+              <h3>Już oficjalnie</h3>
+              <p>Tutaj oficjalnie wszystko się zaczęło &lt;3</p>
+            </div>
+          </article>
+
+          <article class="memory-card memory-08 glass">
+            <img src="images/08.jpg" alt="Nasze wspomnienie 8"><span class="memory-no">08</span>
+          </article>
+          <article class="memory-card memory-09 glass">
+            <img src="images/09.jpg" alt="Nasze wspomnienie 9"><span class="memory-no">09</span>
+          </article>
+          <article class="memory-card memory-10 glass">
+            <img src="images/10.jpg" alt="Nasze wspomnienie 10"><span class="memory-no">10</span>
+          </article>
+
+          <article class="memory-card memory-11 glass video-memory">
+            <video autoplay muted loop playsinline controls>
+              <source src="images/11.mp4" type="video/mp4">
+            </video>
+            <span class="memory-no">11</span>
+            <div class="video-copy">
+              <h3>Głos który kocham słuchać</h3>
+              <p>Najlepsza i najbardziej zdolna dziewczyna jaką kiedykolwiek poznałem z pięknym głosem &lt;3</p>
+            </div>
           </article>
         </div>
 
-        <!-- SZEROKI KAFEL -->
-        <article class="wide-memory glass">
-          <div class="wide-memory__image">
-            <img src="images/07.jpg" alt="Nasze wspomnienie 7" onerror="this.style.display='none'">
-            <div class="photo-placeholder">07.jpg</div>
-          </div>
-          <div class="wide-memory__content">
-            <span class="number">07</span>
-            <h3>Już oficjalnie</h3>
-            <p>Tutaj oficjalnie wszystko się zaczeło <3</p>
-          </div>
+        <article class="quote glass premium-quote">
+          <span class="quote-mark left">“</span>
+          „Zaczęło się od głupiej aplikacji i kilku prostych wiadomości, a moja miłość trwa po dziś dzień. Kocham cię skarbie &lt;3”
+          <span class="quote-mark right">”</span>
         </article>
 
-        <!-- MOzaika 3 zdjęć -->
-        <div class="mosaic">
-          <article class="photo-card mosaic-big glass">
-            <img src="images/08.jpg" alt="" onerror="this.style.display='none'">
-            <div class="photo-placeholder">08.jpg</div>
-          </article>
-          <article class="photo-card glass">
-            <img src="images/09.jpg" alt="" onerror="this.style.display='none'">
-            <div class="photo-placeholder">09.jpg</div>
-          </article>
-          <article class="photo-card glass">
-            <img src="images/10.jpg" alt="" onerror="this.style.display='none'">
-            <div class="photo-placeholder">10.jpg</div>
-          </article>
+        <div class="more-memories">
+          <div class="eyebrow">JESZCZE WIĘCEJ NAS</div>
+          <div class="more-grid">
+            <article class="memory-card glass"><img src="images/11.JPG" alt="Wspomnienie 11"><span class="memory-no">12</span></article>
+            <article class="memory-card glass"><img src="images/12.jpg" alt="Wspomnienie 12"><span class="memory-no">13</span></article>
+            <article class="memory-card glass"><img src="images/13.jpg" alt="Wspomnienie 13"><span class="memory-no">14</span></article>
+            <article class="memory-card glass"><img src="images/14.jpg" alt="Wspomnienie 14"><span class="memory-no">15</span></article>
+            <article class="memory-card glass"><img src="images/15.jpg" alt="Wspomnienie 15"><span class="memory-no">16</span></article>
+            <article class="memory-card glass"><img src="images/16.jpg" alt="Wspomnienie 16"><span class="memory-no">17</span></article>
+            <article class="memory-card glass"><img src="images/17.jpg" alt="Wspomnienie 17"><span class="memory-no">18</span></article>
+            <article class="memory-card glass more-wide"><img src="images/18.jpg" alt="Rodzina"><span class="memory-no">19</span><div class="memory-caption darkfade"><h3>Rodzina</h3><p>Nasza rodzina w komplecie ❤️</p></div></article>
+          </div>
         </div>
-
-        <article class="quote glass">
-          „Zaczeło się od głupiej aplikacji i kilku prostych wiadomości a moja miłość trwa po dziś dzien. Kocham cię skarbie <3”
-        </article>
       </section>
 
       <section class="song">
@@ -201,16 +202,25 @@
           <div class="disc">♥</div>
           <div>
             <strong>Wasza piosenka</strong>
-            <span>wykonawca</span>
+            <span>White 2115</span>
           </div>
-          <button>▶</button>
+          <button id="songBtn">▶</button>
         </div>
+          <article class="quote glass">
+          „Kochanie, wiem ze było między nami bardzo różnie mieliśmy szczęśliwe momenty i dużo złych, ale chciałbym zebyś wiedziała ze jesteś dla mnie najważniejsza na świecie. Gdzie byś nie była zawsze myśle o tobie,
+          budze się myśląc o tobie, pracuje z myślą o tobie, zasypiam myśląc o tobie a nawet śnie o tobie. Chciałbym żebyś codziennie chodziła uśmiechniete, kocham twój uśmiech i całą ciebie, jesteś wspaniała i wiem ze osiągniesz w życiu naprawde bardzo dużo,
+          jestem z ciebie naprawde bardzo dumny, z matury, z odwagi na wyjazd do holandii do pracy na tak długi czas ale też z tego jak sobie radzisz na codzień z wszstkim. Jesteś najpiękniejsza, najmądrejszą i poprostu najlepszą dziewczyną jaką mogłbym mieć i jaką kiedykolwiek w życiu poznałem
+          Kochanie chce ci życzyć wszyskiego najlepszego, żebyś była codziennie uśmiechnięta, miała co tylko sobie wymarzysz, żeby było między nami tak dobrze jak jeszcze nigdy i żeby nasz miłosc nigdy nie zgasła. Wiktoria Kuśma(Kawczyńska) jesteś najlepszą dziewczyną na świecie i mam nadzieje że kiedys moją żoną
+          Wszystkiego najlepszego Kochanie <3"
+        </article>
       </section>
 
       <footer>Denis × Wiktoria • 17.07.2025 ❤️</footer>
     </section>
   </main>
-
+<audio id="bgMusic" loop>
+  <source src="music/song.mp3" type="audio/mpeg">
+</audio>
   <script src="script.js"></script>
 </body>
 </html>

@@ -75,10 +75,17 @@ setInterval(heart,450);
 const box=document.querySelector("#messages");
 const typing=document.querySelector("#typing");
 let idx=0,timer;
+
+function showTimeTransition(){
+  clearTimeout(timer);
+  showScene("#scene-qr");
+  timer=setTimeout(()=>showScene("#scene-story"),2500);
+}
+
 function nextMessage(){
   if(idx>=CONFIG.messages.length){
     typing.classList.remove("show");
-    timer=setTimeout(()=>showScene("#scene-qr"),1500);
+    timer=setTimeout(showTimeTransition,500);
     return;
   }
   typing.classList.add("show");
@@ -95,8 +102,7 @@ function nextMessage(){
 }
 setTimeout(nextMessage,700);
 
-document.querySelector("#skipBtn").onclick=()=>{clearTimeout(timer);showScene("#scene-qr")};
-document.querySelector("#openStory").onclick=()=>showScene("#scene-story");
+document.querySelector("#skipBtn").onclick=showTimeTransition;
 
 function updateCounter(){
   const d=Math.max(0,Date.now()-new Date(CONFIG.relationshipStart).getTime());
@@ -106,3 +112,51 @@ function updateCounter(){
 }
 updateCounter();
 setInterval(updateCounter,30000);
+// ===== MUZYKA =====
+
+const bgMusic = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+const songBtn = document.getElementById("songBtn");
+
+async function toggleMusic() {
+  if (bgMusic.paused) {
+    try {
+      await bgMusic.play();
+
+      // Muzyka gra
+      musicBtn.textContent = "🔊";
+      songBtn.textContent = "⏸";
+      musicBtn.classList.add("playing");
+      songBtn.classList.add("playing");
+
+    } catch (error) {
+      console.log("Nie udało się uruchomić muzyki:", error);
+    }
+  } else {
+    bgMusic.pause();
+
+    // Muzyka zatrzymana
+    musicBtn.textContent = "♫";
+    songBtn.textContent = "▶";
+    musicBtn.classList.remove("playing");
+    songBtn.classList.remove("playing");
+  }
+}
+
+musicBtn.addEventListener("click", toggleMusic);
+songBtn.addEventListener("click", toggleMusic);
+
+// Gdy piosenka się skończy / zatrzyma
+bgMusic.addEventListener("pause", () => {
+  musicBtn.textContent = "♫";
+  songBtn.textContent = "▶";
+  musicBtn.classList.remove("playing");
+  songBtn.classList.remove("playing");
+});
+
+bgMusic.addEventListener("play", () => {
+  musicBtn.textContent = "🔊";
+  songBtn.textContent = "⏸";
+  musicBtn.classList.add("playing");
+  songBtn.classList.add("playing");
+});
