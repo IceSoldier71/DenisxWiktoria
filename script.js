@@ -160,3 +160,39 @@ bgMusic.addEventListener("play", () => {
   musicBtn.classList.add("playing");
   songBtn.classList.add("playing");
 });
+
+// ===== CHRONOLOGIA =====
+// Animacje uruchamiają się dopiero po wejściu sekcji historii.
+// Dzięki temu ekran PIN i rozmowa pozostają bez zmian.
+(() => {
+  const timeline = document.querySelector(".timeline");
+  const progress = document.querySelector(".timeline-progress span");
+  if (!timeline) return;
+
+  const items = [...timeline.querySelectorAll(".timeline-item")];
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("is-visible");
+    });
+  }, { threshold: 0.16 });
+
+  items.forEach(item => observer.observe(item));
+
+  function updateTimelineProgress() {
+    if (!progress) return;
+
+    const rect = timeline.getBoundingClientRect();
+    const viewport = window.innerHeight;
+    const start = viewport * 0.72;
+    const end = rect.height - viewport * 0.28;
+    const current = start - rect.top;
+    const percent = end <= 0 ? 100 : Math.max(0, Math.min(100, (current / end) * 100));
+
+    progress.style.height = percent + "%";
+  }
+
+  window.addEventListener("scroll", updateTimelineProgress, {passive:true});
+  window.addEventListener("resize", updateTimelineProgress);
+  updateTimelineProgress();
+})();

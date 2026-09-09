@@ -35,7 +35,15 @@ box-shadow:0 24px 80px rgba(0,0,0,.25);backdrop-filter:blur(14px)}
 .counter{display:grid;grid-template-columns:repeat(3,1fr);border-radius:22px;padding:20px 8px;margin:5px 0 70px}.counter div{text-align:center}.counter strong{display:block;font-family:Georgia,serif;font-size:25px;color:#f1c6d9}
 .counter span{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#a47a91}
 .gallery-section{padding-bottom:70px}.section-title{font-family:Georgia,serif;font-size:34px;font-weight:400;margin:0 0 22px}
-.photo-card{position:relative;overflow:hidden;border-radius:24px;min-height:220px}.photo-card img,.story-tile img,.wide-memory img,.polaroid img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-card{position:relative;overflow:hidden;border-radius:24px;min-height:220px}.photo-card img,
+.story-tile img,
+.wide-memory img,
+.polaroid img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
 .photo-card--hero{height:420px;margin-bottom:16px}.photo-card--square{aspect-ratio:1/1;min-height:0}.photo-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
 .photo-placeholder{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(145deg,#48142e,#1a0d18);color:#d77aa2;font-family:Georgia,serif;font-size:22px}
 .photo-card img+.photo-placeholder,.story-tile img+.photo-placeholder,.wide-memory img+.photo-placeholder,.polaroid img+.photo-placeholder{z-index:-1}
@@ -627,4 +635,234 @@ color:#fff;font-size:24px;font-weight:300;backdrop-filter:blur(10px);transition:
   height: 100%;
   display: block;
   object-fit: cover;
+}
+/* =========================================================
+   CHRONOLOGIA - dodatek do istniejącego wyglądu
+   Nie zmienia ekranu PIN ani czatu.
+   ========================================================= */
+.timeline-section{
+  position:relative;
+  padding-bottom:80px;
+}
+.timeline-intro{
+  color:#b89ead;
+  font-family:Georgia,serif;
+  font-style:italic;
+  font-size:13px;
+  line-height:1.65;
+  margin:0 8px 42px;
+  max-width:360px;
+}
+.timeline{
+  position:relative;
+  padding:18px 0 10px;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:50%;
+  width:2px;
+  transform:translateX(-50%);
+  background:linear-gradient(
+    180deg,
+    rgba(239,63,139,.15),
+    rgba(239,63,139,.9) 12%,
+    rgba(173,44,126,.8) 80%,
+    rgba(239,63,139,.18)
+  );
+  box-shadow:0 0 16px rgba(239,63,139,.28);
+}
+.timeline-progress{
+  position:fixed;
+  top:0;
+  right:10px;
+  width:3px;
+  height:100vh;
+  background:rgba(255,255,255,.06);
+  z-index:8;
+  pointer-events:none;
+  border-radius:10px;
+}
+.timeline-progress span{
+  display:block;
+  width:100%;
+  height:0%;
+  background:linear-gradient(180deg,#ff62a7,#b92c82);
+  box-shadow:0 0 10px rgba(255,68,145,.65);
+  border-radius:10px;
+}
+.timeline-item{
+  position:relative;
+  width:50%;
+  padding:0 18px 58px 0;
+  opacity:0;
+  transform:translateY(45px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+.timeline-item.timeline-right{
+  margin-left:50%;
+  padding:0 0 58px 18px;
+}
+.timeline-item.is-visible{
+  opacity:1;
+  transform:none;
+}
+.timeline-dot{
+  position:absolute;
+  top:22px;
+  right:-13px;
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#160914;
+  border:2px solid #ed4b94;
+  color:#ff68aa;
+  font-size:11px;
+  z-index:3;
+  box-shadow:0 0 0 5px rgba(239,75,148,.08),0 0 20px rgba(239,75,148,.5);
+}
+.timeline-right .timeline-dot{
+  left:-13px;
+  right:auto;
+}
+.timeline-card{
+  overflow:hidden;
+  border-radius:20px;
+  background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.timeline-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 24px 55px rgba(0,0,0,.38),0 0 24px rgba(239,62,137,.09);
+}
+.timeline-media{
+  position:relative;
+  overflow:hidden;
+  background:#170b15;
+}
+
+.timeline-media img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  object-position:center;
+}
+
+.timeline-media video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+.timeline-media video{object-position:center}
+.timeline-number{
+  position:absolute;
+  top:9px;
+  right:9px;
+  min-width:31px;
+  height:31px;
+  padding:0 7px;
+  display:grid;
+  place-items:center;
+  border-radius:999px;
+  background:rgba(10,5,11,.62);
+  border:1px solid rgba(255,255,255,.16);
+  backdrop-filter:blur(9px);
+  color:#fff;
+  font-size:10px;
+  letter-spacing:.08em;
+}
+.timeline-content{
+  padding:16px 15px 18px;
+}
+.timeline-content small{
+  color:#df6a9f;
+  font-size:8px;
+  letter-spacing:.16em;
+}
+.timeline-content h3{
+  font-family:Georgia,serif;
+  font-weight:400;
+  font-size:20px;
+  line-height:1.2;
+  margin:7px 0 7px;
+}
+.timeline-content p{
+  color:#b89ead;
+  font-size:11px;
+  line-height:1.55;
+  margin:0;
+}
+.timeline-end{
+  position:relative;
+  margin:18px 0 10px;
+  padding:30px 20px 34px;
+  border-radius:24px;
+  text-align:center;
+}
+.timeline-end-heart{
+  width:48px;
+  height:48px;
+  margin:0 auto 18px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  color:#fff;
+  background:linear-gradient(145deg,#ff398a,#8d1757);
+  box-shadow:0 0 28px rgba(255,45,130,.35);
+}
+.timeline-end .eyebrow{margin-bottom:10px}
+.timeline-end h3{
+  font-family:Georgia,serif;
+  font-weight:400;
+  font-size:26px;
+  margin:0 0 8px;
+}
+.timeline-end p{
+  color:#b89ead;
+  font-size:12px;
+  margin:0;
+}
+@media(max-width:430px){
+  .timeline-progress{right:4px}
+}
+@media(max-width:360px){
+  .timeline-item{padding-right:13px}
+  .timeline-item.timeline-right{padding-left:13px}
+  .timeline-media{height:145px}
+  .timeline-content h3{font-size:18px}
+  .timeline-dot{width:23px;height:23px;right:-12px}
+  .timeline-right .timeline-dot{left:-12px}
+}
+/* ===== POPRAWKA KADROWANIA ZDJĘĆ W CHRONOLOGII ===== */
+
+.wide-memory__image img{
+  width:100%;
+  height:100%;
+  object-fit:contain !important;
+  object-position:center !important;
+  display:block;
+}
+
+.wide-memory__image{
+  background:#120914;
+}
+
+/* zdjęcia w kafelkach chronologii */
+.story-tile__photo img{
+  width:100%;
+  height:100%;
+  object-fit:contain !important;
+  object-position:center !important;
+  display:block;
+}
+
+.story-tile__photo{
+  background:#120914;
 }
