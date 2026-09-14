@@ -876,3 +876,89 @@ color:#fff;font-size:24px;font-weight:300;backdrop-filter:blur(10px);transition:
   display:block;
   background:#140c14;
 }
+/* =========================================================
+   MOBILE — FIX CHRONOLOGIA
+   Nie zmienia desktopa
+   ========================================================= */
+
+@media (max-width: 800px){
+
+  .timeline{
+    width:100%;
+    max-width:100%;
+  }
+
+  .timeline-item{
+    width:calc(50% - 18px);
+    box-sizing:border-box;
+    padding:0 0 58px 0;
+  }
+
+  .timeline-item.timeline-right{
+    width:calc(50% - 18px);
+    margin-left:calc(50% + 18px);
+    padding:0 0 58px 0;
+  }
+
+  .timeline-card{
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+
+  .timeline-content{
+    min-width:0;
+    overflow-wrap:anywhere;
+    word-break:normal;
+  }
+
+  .timeline-content h3{
+    font-size:21px;
+    line-height:1.18;
+    overflow-wrap:anywhere;
+  }
+
+  .timeline-content p{
+    font-size:12px;
+    line-height:1.5;
+  }
+
+  .timeline-media img{
+    width:100%;
+    height:auto;
+    max-width:100%;
+    object-fit:contain;
+  }
+
+  .timeline-media video{
+    width:100%;
+    height:auto;
+    aspect-ratio:16/10;
+    object-fit:cover;
+  }
+}
+
+/* Jeszcze trochę miejsca na małych ekranach */
+@media (max-width:460px){
+
+  .timeline-item{
+    width:calc(50% - 14px);
+  }
+
+  .timeline-item.timeline-right{
+    width:calc(50% - 14px);
+    margin-left:calc(50% + 14px);
+  }
+
+  .timeline-content{
+    padding:15px 13px 17px;
+  }
+
+  .timeline-content h3{
+    font-size:20px;
+  }
+
+  .timeline-content p{
+    font-size:11px;
+  }
+}
