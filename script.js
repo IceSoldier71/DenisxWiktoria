@@ -85,7 +85,7 @@ function showTimeTransition(){
 function nextMessage(){
   if(idx>=CONFIG.messages.length){
     typing.classList.remove("show");
-    timer=setTimeout(showTimeTransition,1000);
+    timer=setTimeout(showTimeTransition,1500);
     return;
   }
   typing.classList.add("show");
@@ -100,7 +100,7 @@ function nextMessage(){
     nextMessage();
   },1000+Math.random()*1000);
 }
-setTimeout(nextMessage,1000);
+setTimeout(nextMessage,1500);
 
 document.querySelector("#skipBtn").onclick=showTimeTransition;
 
