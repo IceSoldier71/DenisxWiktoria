@@ -79,13 +79,13 @@ let idx=0,timer;
 function showTimeTransition(){
   clearTimeout(timer);
   showScene("#scene-qr");
-  timer=setTimeout(()=>showScene("#scene-story"),2000);
+  timer=setTimeout(()=>showScene("#scene-story"),1000);
 }
 
 function nextMessage(){
   if(idx>=CONFIG.messages.length){
     typing.classList.remove("show");
-    timer=setTimeout(showTimeTransition,2000);
+    timer=setTimeout(showTimeTransition,1000);
     return;
   }
   typing.classList.add("show");
@@ -98,7 +98,7 @@ function nextMessage(){
     box.appendChild(b);
     box.scrollTop=box.scrollHeight;
     nextMessage();
-  },1500+Math.random()*1500);
+  },1000+Math.random()*1000);
 }
 setTimeout(nextMessage,500);
 
