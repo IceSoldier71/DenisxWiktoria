@@ -98,9 +98,9 @@ function nextMessage(){
     box.appendChild(b);
     box.scrollTop=box.scrollHeight;
     nextMessage();
-  },650+Math.random()*700);
+  },1500+Math.random()*1500);
 }
-setTimeout(nextMessage,700);
+setTimeout(nextMessage,1500);
 
 document.querySelector("#skipBtn").onclick=showTimeTransition;
 
