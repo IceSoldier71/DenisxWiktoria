@@ -100,7 +100,7 @@ function nextMessage(){
     nextMessage();
   },1000+Math.random()*1000);
 }
-setTimeout(nextMessage,100);
+setTimeout(nextMessage,1000);
 
 document.querySelector("#skipBtn").onclick=showTimeTransition;
 
