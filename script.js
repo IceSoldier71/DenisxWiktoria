@@ -85,7 +85,7 @@ function showTimeTransition(){
 function nextMessage(){
   if(idx>=CONFIG.messages.length){
     typing.classList.remove("show");
-    timer=setTimeout(showTimeTransition,500);
+    timer=setTimeout(showTimeTransition,4000);
     return;
   }
   typing.classList.add("show");
@@ -98,7 +98,7 @@ function nextMessage(){
     box.appendChild(b);
     box.scrollTop=box.scrollHeight;
     nextMessage();
-  },1800+Math.random()*1800);
+  },650+Math.random()*700);
 }
 setTimeout(nextMessage,700);
 
