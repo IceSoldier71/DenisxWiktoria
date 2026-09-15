@@ -98,7 +98,7 @@ function nextMessage(){
     box.appendChild(b);
     box.scrollTop=box.scrollHeight;
     nextMessage();
-  },650+Math.random()*700);
+  },1800+Math.random()*1800);
 }
 setTimeout(nextMessage,700);
 
