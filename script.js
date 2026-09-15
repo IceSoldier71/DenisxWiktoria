@@ -85,7 +85,7 @@ function showTimeTransition(){
 function nextMessage(){
   if(idx>=CONFIG.messages.length){
     typing.classList.remove("show");
-    timer=setTimeout(showTimeTransition,4000);
+    timer=setTimeout(showTimeTransition,8000);
     return;
   }
   typing.classList.add("show");
