@@ -37,8 +37,8 @@ document.querySelectorAll(".keypad button[data-key]").forEach(btn=>{
 const CONFIG = {
   relationshipStart: "2025-07-17T20:00:00",
   messages: [
-    ["me","Cześć piękna"],
     ["them","Cześć"],
+    ["me","Cześć piękna"],
     ["me","Co ktoś tak ładny jak ty robi w takim miejscu."],
     ["them","Szukam ciekawych osób"],
     ["me","czyli jestem ciekawy ;)"],
@@ -68,7 +68,7 @@ function heart(){
   h.style.animationDuration=(4+Math.random()*6)+"s";
   h.style.color=Math.random()>.5?"#ff287d":"#b62eae";
   document.querySelector("#hearts").appendChild(h);
-  setTimeout(()=>h.remove(),10000);
+  setTimeout(()=>h.remove(),30000);
 }
 setInterval(heart,450);
 
@@ -79,7 +79,7 @@ let idx=0,timer;
 function showTimeTransition(){
   clearTimeout(timer);
   showScene("#scene-qr");
-  timer=setTimeout(()=>showScene("#scene-story"),2500);
+  timer=setTimeout(()=>showScene("#scene-story"),5000);
 }
 
 function nextMessage(){
