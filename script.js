@@ -79,13 +79,13 @@ let idx=0,timer;
 function showTimeTransition(){
   clearTimeout(timer);
   showScene("#scene-qr");
-  timer=setTimeout(()=>showScene("#scene-story"),5000);
+  timer=setTimeout(()=>showScene("#scene-story"),4000);
 }
 
 function nextMessage(){
   if(idx>=CONFIG.messages.length){
     typing.classList.remove("show");
-    timer=setTimeout(showTimeTransition,8000);
+    timer=setTimeout(showTimeTransition,4000);
     return;
   }
   typing.classList.add("show");
